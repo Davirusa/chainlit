@@ -32,8 +32,8 @@ export default function ScrollContainer({
   }, [messages, autoScroll]);
 
   const handleScroll = () => {
-    if (!ref.current || !setAutoScroll) return;
-
+    console.log('handleScroll called')
+    if (!ref.current || !setAutoScroll) return;    
     const { scrollTop, scrollHeight, clientHeight } = ref.current;
     const atBottom = scrollTop + clientHeight >= scrollHeight - 10;
     setAutoScroll(atBottom);
@@ -43,7 +43,7 @@ export default function ScrollContainer({
     <div
       ref={ref}
       className={cn(
-        'relative flex flex-col flex-grow overflow-y-auto',
+        'relative flex flex-col',
         className
       )}
       onScroll={handleScroll}
